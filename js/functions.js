@@ -35,19 +35,23 @@ extractDigit ();
 
 // Добавочный символ
 
-// console.log(symb('11', 4, 'qq'));
+// console.log(symb('1', 2, '0'));
 
+console.log(createAddress('1', 4, '0'));
 
-/* function symb(stStr, length, lasStr) {
-  let finStr = ''; // обявить переменную
-  if(stStr.length >= length) {
-    return stStr;
-  } // проверить длину строки
-  if(lasStr.length >= length || lasStr.length <= length){
-    finStr = lasStr + stStr;
-    return symb(finStr, length, lasStr);
+function createAddress(string, minLength, addString) {
+  let str = addString + string;
+  if (string > minLength) {
+    return str;
+  } else if (addString > minLength) {
+    str.slice(1, minLength);
+    return str;
+  } else {
+    return str;
   }
-} symb(); */
+}
+
+
 
 
 // Кексобукинг рандом
