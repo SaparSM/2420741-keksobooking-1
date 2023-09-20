@@ -35,9 +35,26 @@ extractDigit ();
 
 // Добавочный символ
 
-// console.log(symb('1', 2, '0'));
+// console.log(createAddress('qwerty', 4, 'werty'));
 
-console.log(createAddress('1', 4, '0'));
+function createAddress(string, minLength, addString) {
+  let str = addString + string;
+  const rep = minLength - string.length;
+  if (string.length < minLength && str.length > minLength) { //  ('q', 4, 'werty'); 'werq' добавим условие ор.строка < мин, фин.строка > мин.стр
+    str = addString.slice(0, minLength - 1) + string;
+    return str; // вернем результат
+  } else if (string.length <= minLength && str.length > minLength) { // ('q', 4, 'werty'); 'werq' добавим условие ор.строка <= мин, фин.строка > мин.стр
+    return str; // вернем результат
+  } else if (string.length > minLength) { // ('qwerty', 4, '0') 'qwerty' условие ор.строка > мин,
+    return string; // добавим условие ор.строка > мин
+  }else if (string.length < minLength) { // ('1', 4, '0'); '0001' добавим условие ор.строка < мин, фин.строка < мин.стр
+    str = addString.repeat(rep) + string;
+    return str; // вернем результат
+  }
+}
+
+
+/* console.log(createAddress('1', 2, '00'));
 
 function createAddress(string, minLength, addString) {
   let str = addString + string;
@@ -49,7 +66,7 @@ function createAddress(string, minLength, addString) {
   } else {
     return str;
   }
-}
+} */
 
 
 
